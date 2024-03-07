@@ -1,4 +1,4 @@
-/* stylelint-disable color-function-notation, alpha-value-notation, rule-empty-line-before, comment-empty-line-before, selector-pseudo-element-colon-notation, no-descending-specificity, comment-empty-line-before */
+/* stylelint-disable color-function-notation, alpha-value-notation, rule-empty-line-before, comment-empty-line-before, selector-pseudo-element-colon-notation, no-descending-specificity */
 /* header and nav layout */
 .header-wrapper{
   position: fixed;
