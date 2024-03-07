@@ -1,4 +1,4 @@
-/* stylelint-disable color-function-notation, alpha-value-notation, rule-empty-line-before */
+/* stylelint-disable color-function-notation, alpha-value-notation, rule-empty-line-before, comment-empty-line-before, selector-pseudo-element-colon-notation, no-descending-specificity, comment-empty-line-before */
 /* header and nav layout */
 .header-wrapper{
   position: fixed;
@@ -99,7 +99,6 @@
 .utility .columns > div > div:last-child > ul > li:after{
   content:"\203A";
   display: inline-block;
-  position: relative;
   font-size: 28px;
   transform: rotate(90deg);
   position: absolute;
@@ -140,7 +139,7 @@
   margin: 0 0 5px;
 }
 .utility .columns > div > div:last-child ul ul li:last-child{
-  margin: 3px 0 0 0;
+  margin: 3px 0 0;
   padding-top: 8px;
   border-top: solid 1px var(--dark-color);
 }
@@ -219,7 +218,7 @@
 .main-nav div > ul > li > ul{
   display: none;
   margin: 0;
-  padding: 15px 15px 25px 15px;
+  padding: 15px 15px 25px;
   gap: 30px;
   position: absolute;
   justify-content: flex-start;
