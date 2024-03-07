@@ -34,6 +34,10 @@
   --cta-hover: #753bbc;
   --cta-hover-active:#204d74; 
 
+  /* navigation colors */
+  --navigation-color: var(--black);
+  --navigation-hover: #753bbc;
+
   /* backgrounds */
 
   --background-color: var(--white);
@@ -44,6 +48,7 @@
 
   --body-font-family: "gilroy-regular", "arial", "helvetica", "sans-serif";
   --heading-font-family: "gilroy-semibold", "arial", "helvetica", "sans-serif";
+  --navigation-font-family: "gilroy-semibold", "arial", "helvetica", "sans-serif";
   --fixed-font-family: "gilroy-semibold", "arial", "helvetica", "sans-serif";
 
   /* body sizes */
