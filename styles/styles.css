@@ -34,9 +34,11 @@
   --cta-hover: #753bbc;
   --cta-hover-active:#204d74; 
 
-  /* site background */
+  /* backgrounds */
 
   --background-color: var(--white);
+  --header-background-color: var(--white);
+  --utility-background-color: var(--blue);
 
   /* fonts */
 
