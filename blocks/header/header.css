@@ -123,8 +123,8 @@
 }
 
 .utility .columns > div > div:last-child ul ul:before{
-  width: 0px;
-  height: 0px;
+  width: 0;
+  height: 0;
   border-left: 8px solid transparent;
   border-right: 8px solid transparent;
   border-bottom: 8px solid var(--white);
@@ -207,7 +207,7 @@
   padding: 0;
 }
 .main-nav div > ul{
-  margin: 30px 0 0 0;
+  margin: 30px 0 0;
   display: flex;
   gap: 40px;
 }
