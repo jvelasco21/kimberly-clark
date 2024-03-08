@@ -1,3 +1,4 @@
+/* eslint-disable linebreak-style */
 import { fetchPlaceholders } from '../../scripts/aem.js';
 
 function updateActiveSlide(slide) {
@@ -45,6 +46,66 @@ function showSlide(block, slideIndex = 0) {
 function bindEvents(block) {
   const slideIndicators = block.querySelector('.carousel-slide-indicators');
   if (!slideIndicators) return;
+
+  const scrollingContainer = block.querySelector('.carousel-slides');
+  const slides = block.querySelectorAll('.carousel-slide');
+  let isMouseDown = false;
+  let startX = 0;
+  let scrollLeft = 0;
+  let visibleSlideIndex = -1;
+
+  scrollingContainer.addEventListener('mousedown', (e) => {
+    isMouseDown = true;
+    startX = e.pageX - scrollingContainer.offsetLeft;
+    scrollLeft = scrollingContainer.scrollLeft;
+
+    // Find the current visible slide
+    slides.forEach((slide, index) => {
+      if (slide.getAttribute('aria-hidden') === 'false') {
+        visibleSlideIndex = index;
+      }
+    });
+  });
+
+  scrollingContainer.addEventListener('mouseleave', () => {
+    isMouseDown = false;
+  });
+
+  scrollingContainer.addEventListener('mouseup', () => {
+    isMouseDown = false;
+
+    if (visibleSlideIndex !== -1) {
+      const visibleSlideRect = slides[visibleSlideIndex].getBoundingClientRect();
+      const slideWidth = visibleSlideRect.width;
+      const offset = 0.2 * slideWidth;
+
+      if (visibleSlideIndex < slides.length - 1) {
+        const nextSlideRect = slides[visibleSlideIndex + 1].getBoundingClientRect();
+        if (slideWidth - nextSlideRect.left > offset) {
+          showSlide(block, visibleSlideIndex + 1);
+        } else {
+          showSlide(block, visibleSlideIndex);
+        }
+      }
+
+      if (visibleSlideIndex > 0) {
+        const prevSlideRect = slides[visibleSlideIndex - 1].getBoundingClientRect();
+        if (prevSlideRect.right > offset) {
+          showSlide(block, visibleSlideIndex - 1);
+        } else {
+          showSlide(block, visibleSlideIndex);
+        }
+      }
+    }
+  });
+
+  scrollingContainer.addEventListener('mousemove', (e) => {
+    if (!isMouseDown) return;
+    e.preventDefault();
+    const x = e.pageX - scrollingContainer.offsetLeft;
+    const walk = (x - startX) * 2;
+    scrollingContainer.scrollLeft = scrollLeft - walk;
+  });
 
   slideIndicators.querySelectorAll('button').forEach((button) => {
     button.addEventListener('click', (e) => {
