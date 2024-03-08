@@ -199,7 +199,7 @@
   padding: 0;
   margin: 0 auto;
   background: none;
-  color: var(--carousel-color-header);
+  color: var(--carousel-color-heading);
   width: var(--max-width);
   padding-right: 450px;
   position: relative;

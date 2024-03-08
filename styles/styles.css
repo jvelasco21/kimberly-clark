@@ -20,6 +20,7 @@
   --skyblue: #a7c6ed;
   --gray: #f1f1f2;
   --dark-color: #ccc;
+  --gray-2: #D1D3D4;
   
   /* text colors */
   --text-color: var(--black);
@@ -69,9 +70,13 @@
   --max-width: 1024px;
 
   /* carousel colors */
-  --carousel-color-header: var(--black);
+  --carousel-color-heading: var(--black);
   --carousel-color-description: var(--black);
   --carousel-color-indicator: var(--purple);
+
+  /* stats */
+  --stats-heading-font-size: 80px;
+  --stats-heading-font-family: var(--heading-font-family);
 }
 
 @font-face {
@@ -274,8 +279,12 @@ main .section {
   max-width: none;
 }
 
-/* section metadata */
+/* section no padding */
+.section.no-padding {
+  padding: 0;
+}
 
+/* section metadata */
 main .section.light,
 main .section.highlight {
   background-color: var(--light-color);
