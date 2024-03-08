@@ -77,6 +77,11 @@
   /* stats */
   --stats-heading-font-size: 80px;
   --stats-heading-font-family: var(--heading-font-family);
+
+  /* story teaser */
+  --story-heading-font-size: 22px;
+  --story-heading-font-family: var(--heading-font-family);
+  --story-font-size: var(--body-font-size-xs);
 }
 
 @font-face {
@@ -254,12 +259,12 @@ main img {
 /* sections */
 
 main .section {
-  padding: 64px 16px;
+  padding: 20px 16px;
 }
 
 @media (width >= 600px) {
   main .section {
-    padding: 64px 32px;
+    padding: 20px 32px;
   }
 }
 
