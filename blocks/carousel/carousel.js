@@ -1,6 +1,8 @@
 /* eslint-disable linebreak-style */
 import { fetchPlaceholders } from '../../scripts/aem.js';
 
+let intervalId;
+
 function updateActiveSlide(slide) {
   const block = slide.closest('.carousel');
   const slideIndex = parseInt(slide.dataset.slideIndex, 10);
@@ -43,6 +45,18 @@ function showSlide(block, slideIndex = 0) {
   });
 }
 
+function startAutoScroll(block) {
+  intervalId = setInterval(() => {
+    const activeSlideIndex = parseInt(block.dataset.activeSlide, 10);
+    const nextSlideIndex = (activeSlideIndex + 1) % block.querySelectorAll('.carousel-slide').length;
+    showSlide(block, nextSlideIndex);
+  }, 6000);
+}
+
+function stopAutoScroll() {
+  clearInterval(intervalId);
+}
+
 function bindEvents(block) {
   const slideIndicators = block.querySelector('.carousel-slide-indicators');
   if (!slideIndicators) return;
@@ -71,7 +85,7 @@ function bindEvents(block) {
     isMouseDown = false;
   });
 
-  scrollingContainer.addEventListener('mouseup', () => {
+  scrollingContainer.addEventListener('mouseup', (e) => {
     isMouseDown = false;
 
     if (visibleSlideIndex !== -1) {
@@ -79,23 +93,28 @@ function bindEvents(block) {
       const slideWidth = visibleSlideRect.width;
       const offset = 0.2 * slideWidth;
 
-      if (visibleSlideIndex < slides.length - 1) {
-        const nextSlideRect = slides[visibleSlideIndex + 1].getBoundingClientRect();
-        if (slideWidth - nextSlideRect.left > offset) {
-          showSlide(block, visibleSlideIndex + 1);
-        } else {
-          showSlide(block, visibleSlideIndex);
-        }
-      }
+      const currentX = e.pageX - scrollingContainer.offsetLeft;
+      const diffX = currentX - startX;
 
-      if (visibleSlideIndex > 0) {
-        const prevSlideRect = slides[visibleSlideIndex - 1].getBoundingClientRect();
-        if (prevSlideRect.right > offset) {
-          showSlide(block, visibleSlideIndex - 1);
-        } else {
-          showSlide(block, visibleSlideIndex);
+      if (diffX < 0) { // mouse moving right
+        if (visibleSlideIndex < slides.length - 1) {
+          const nextSlideRect = slides[visibleSlideIndex + 1].getBoundingClientRect();
+          if (slideWidth - nextSlideRect.left > offset) {
+            showSlide(block, visibleSlideIndex + 1);
+            return;
+          }
+        }
+      } else if (diffX > 0) { // mouse moving left
+        if (visibleSlideIndex > 0) {
+          const prevSlideRect = slides[visibleSlideIndex - 1].getBoundingClientRect();
+          if (prevSlideRect.right > offset) {
+            showSlide(block, visibleSlideIndex - 1);
+            return;
+          }
         }
       }
+      // Stay where you are if 20% threshold is not crossed
+      showSlide(block, visibleSlideIndex);
     }
   });
 
@@ -105,6 +124,14 @@ function bindEvents(block) {
     const x = e.pageX - scrollingContainer.offsetLeft;
     const walk = (x - startX) * 2;
     scrollingContainer.scrollLeft = scrollLeft - walk;
+  });
+
+  block.addEventListener('mouseenter', () => {
+    stopAutoScroll(); // Stop auto-scrolling when mouse enters the slider
+  });
+
+  block.addEventListener('mouseleave', () => {
+    startAutoScroll(block); // Start auto-scrolling when mouse leaves the slider
   });
 
   slideIndicators.querySelectorAll('button').forEach((button) => {
@@ -207,5 +234,6 @@ export default async function decorate(block) {
 
   if (!isSingleSlide) {
     bindEvents(block);
+    startAutoScroll(block);
   }
 }
