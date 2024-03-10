@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 
 /*
  * Copyright 2020 Adobe. All rights reserved.
@@ -289,8 +290,72 @@ main .section {
   padding: 0;
 }
 
+/* section flex justify */
+.section.flex-justify-space-between .block > div > div{
+  justify-content: space-between;
+  display: flex;
+}
+
+.section.flex-justify-center .block > div > div {
+  justify-content: center;
+  display: flex;
+}
+
+.section.flex-justify-flex-start .block > div > div {
+  justify-content: flex-start;
+  display: flex;
+}
+
+.section.flex-justify-flex-end .block > div > div {
+  justify-content: flex-end;
+  display: flex;
+}
+
 /* section metadata */
 main .section.light,
 main .section.highlight {
   background-color: var(--light-color);
+}
+
+main .section.gray {
+  background-color: var(--gray);
+}
+
+main .section.blue {
+  background-color: var(--blue);
+}
+
+main .section.babyblue {
+  background-color: var(--skyblue);
+}
+
+main .section.gray-inner > div {
+  background-color: var(--gray);
+}
+
+main .section.blue-inner > div{
+  background-color: var(--blue);
+}
+
+main .section.babyblue-inner > div {
+  background-color: var(--skyblue);
+}
+
+
+/* text alignment */
+.section.content-center {
+  text-align: center;
+}
+
+.section.content-right {
+  text-align: right;
+}
+
+/* clients section */
+.clients-section.section > div:not(.default-content-wrapper) { 
+  padding: 100px 20px 0;
+}
+
+.clients-section.section .button-container {
+  margin: 0;
 }
