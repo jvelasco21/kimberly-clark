@@ -55,6 +55,23 @@
   align-items: center;
 }
 
+/* columns - flex justify */
+.columns.flex-justify-space-between > div {
+  justify-content: space-between;
+}
+
+.columns.flex-justify-center > div {
+  justify-content: center;
+}
+
+.columns.flex-justify-flex-start > div {
+  justify-content: flex-start;
+}
+
+.columns.flex-justify-flex-end > div {
+  justify-content: flex-end;
+}
+
 /* columns - background colors */
 .blue-babyblue-grey.columns > div > div {
   flex: unset;
@@ -151,4 +168,20 @@
 .teaser-circle-image.columns p {
   width: 52%;
   margin: 0 0 1em;
+}
+
+
+/* Clients section */
+.clients.columns img {
+  width: auto;
+  height: auto;
+}
+
+.clients.columns a {
+  display: inline-block;
+  padding: 0 15px;
+}
+
+.clients.columns > div > div{
+  align-items: center;
 }
