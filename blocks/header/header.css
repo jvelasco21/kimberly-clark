@@ -10,22 +10,66 @@ header {
   top: 0;
   left: 0;
   width: 100%;
-  height: var(--nav-height);
+  height: var(--nav-mobile-height);
   background-color: var(--header-background-color);
   z-index: 5;
-  box-shadow: 0 5px 5px -2px rgba(0 0 0 / 50%);
+  box-shadow: 0 5px 5px -2px rgba(0 0 0 / 20%);
 }
 
-.header-wrapper::before{
-  background: var(--blue);
-  height: 35px;
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0;
+.main-nav-columns > div{
+  display: flex;
+  align-items: center;
+  height: 100%;
+  margin: 0;
   width: 100%;
+  flex-shrink: 0;
+  flex-flow: row nowrap;
+  justify-content: space-between;
 }
 
+.main-nav-columns > div::before{
+  display: block;
+  content: '';
+  width: 22px;
+}
+
+@media (width >= 600px) {
+  .header-wrapper {
+    height: var(--nav-height);
+    box-shadow: 0 5px 5px -2px rgba(0 0 0 / 50%);
+  }
+
+  .main-nav-columns > div{
+    display: flex;
+    height: 100%;
+    margin: 0;
+    width: 100%;
+    gap: 40px;
+    flex-shrink: 0;
+    gap: 15px;
+    justify-content: space-between;
+  }
+
+  .main-nav-columns > div::before{
+    display: none;
+  }
+
+  .header-wrapper::before{
+    background: var(--blue);
+    height: 35px;
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+  }
+}
+
+@media (width >= 900px) {
+  .main-nav-columns > div{
+    gap: 40px;
+  }
+}
 
 /* nav (header) wrapper */
 .nav-wrapper{
@@ -36,9 +80,7 @@ header {
 
 /* utility */
 .utility{
-  display: flex;
-  justify-content: flex-end;
-  height: 35px;
+  display: none;
 }
 
 .utility .columns-wrapper{
@@ -47,17 +89,6 @@ header {
   align-items: center;
   height: 100%;
   margin: 0;
-}
-
-.main-nav-columns > div{
-  display: flex;
-  align-items: center;
-  height: 100%;
-  margin: 0;
-  width: 100%;
-  flex-shrink: 0;
-  gap: 40px;
-  justify-content: space-between;
 }
 
 .utility .utility-columns > div{
@@ -79,7 +110,19 @@ header {
   display: inline-block;
 }
 
+@media (width >= 600px) {
+  .utility{
+    display: flex;
+    justify-content: flex-end;
+    height: 35px;
+  }
+}
+
 /* utility - social media */
+.utility .columns-img-col{
+  display: none;
+}
+
 .utility .columns-img-col ul li{
   margin: 0 10px;
   display: flex;
@@ -99,6 +142,12 @@ header {
 
 .utility .columns-img-col ul a:hover{
   transform: scale(1.2);
+}
+
+@media (width >= 600px) {
+  .utility .columns-img-col{
+    display: block;
+  }
 }
 
 /* utility - languages */
@@ -191,14 +240,27 @@ header {
   white-space: nowrap;
 }
 
+/* tablet modifications */
+@media (width >= 600px) {
+  .utility .utility-columns > div{
+    flex-flow: row nowrap;
+    align-items: center;
+  }
+}
+
+
+
+
 /* main nav columns */
 .main-nav-columns {
-  height: 80px;
+  height: var(--nav-mobile-height);
+  width: 100%;
 }
 
 .main-nav .columns-wrapper{
   margin: 0;
   max-width: none;
+  display: flex;
 }
 
 /* logo */
@@ -211,8 +273,9 @@ header {
 }
 
 .main-nav-columns .columns-img-col img{
-  width: auto;
-  display: inline !important;
+  width: 100%;
+  display: inline-block !important;
+  height: auto;
 }
 
 .main-nav-columns .columns-img-col picture{
@@ -221,7 +284,34 @@ header {
   height: 100%;
 }
 
+/* tablet modifications */
+@media (width >= 600px) {
+  .main-nav-columns {
+    height: 80px;
+    max-width: none;
+  }
+
+  .main-nav .columns-wrapper{
+    display: block;
+  }
+}
+
+/* desktop modifications */
+@media (width >= 900px) {
+  .main-nav-columns .columns-img-col:first-child{
+    max-width: none;
+  }
+
+  .main-nav-columns .columns-img-col img{
+    width: auto;
+  }
+}
+
 /* main nav */
+.main-nav-columns > div > div:nth-child(2){
+  display: none;
+}
+
 .main-nav ul {
   list-style: none;
   margin: 0;
@@ -321,6 +411,27 @@ header {
   text-decoration: underline;
 }
 
+/* tablet modifications */
+@media (width >= 600px) {
+  .main-nav div > ul{
+    margin: 30px 0 0;
+    display: flex;
+    gap: 15px;
+  }
+}
+
+/* desktop modifications */
+@media (width >= 900px) {
+  .main-nav-columns > div > div:nth-child(2){
+    display: block;
+  }
+  
+  .main-nav div > ul{
+    gap: 40px;
+  }
+}
+
+
 /* search */
 .main-nav-columns > div > div:last-child{
   flex-grow: 0;
@@ -332,6 +443,9 @@ header nav#nav .nav-hamburger {
   height: 22px;
   display: flex;
   align-items: center;
+  position: absolute;
+  left: 0;
+  top: 20px;
 }
 
 header nav#nav .nav-hamburger button {
@@ -340,11 +454,11 @@ header nav#nav .nav-hamburger button {
   border: 0;
   border-radius: 0;
   padding: 0;
-  background-color: var(--background-color);
   color: inherit;
   overflow: initial;
   text-overflow: initial;
   white-space: initial;
+  background: none;
 }
 
 header nav#nav .nav-hamburger-icon,
@@ -360,15 +474,14 @@ header nav#nav .nav-hamburger-icon::before,
 header nav#nav .nav-hamburger-icon::after {
   content: "";
   position: absolute;
-  background: currentcolor;
+  background: var(--black);
 }
 
 header nav#nav[aria-expanded="false"] .nav-hamburger-icon,
 header nav#nav[aria-expanded="false"] .nav-hamburger-icon::before,
 header nav#nav[aria-expanded="false"] .nav-hamburger-icon::after {
   height: 2px;
-  border-radius: 2px;
-  background: currentcolor;
+  background: var(--black);
 }
 
 header nav#nav[aria-expanded="false"] .nav-hamburger-icon::before {
@@ -391,7 +504,6 @@ header nav#nav[aria-expanded="true"] .nav-hamburger-icon::after {
   transform-origin: 2px 1px;
   width: 24px;
   height: 2px;
-  border-radius: 2px;
 }
 
 header nav#nav[aria-expanded="true"] .nav-hamburger-icon::after {
@@ -400,12 +512,34 @@ header nav#nav[aria-expanded="true"] .nav-hamburger-icon::after {
   transform: rotate(-45deg);
 }
 
+
+/* tablet modifications */
+@media (width >= 600px) {
+  header nav#nav .nav-hamburger{
+    top: 7px;
+  }
+
+  header nav#nav .nav-hamburger-icon::before,
+  header nav#nav .nav-hamburger-icon::after {
+    background: var(--white);
+  }
+
+  header nav#nav[aria-expanded="false"] .nav-hamburger-icon,
+  header nav#nav[aria-expanded="false"] .nav-hamburger-icon::before,
+  header nav#nav[aria-expanded="false"] .nav-hamburger-icon::after {
+    background: var(--white);
+  }
+}
+
+/* desktop modifications */
 @media (width >= 900px) {
   header nav#nav .nav-hamburger {
     display: none;
     visibility: hidden;
   }
 }
+
+
 
 
 /* sections */
