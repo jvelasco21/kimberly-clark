@@ -135,6 +135,7 @@
   line-height: 1.2;
   display: flex;
   flex-flow: column;
+  overflow: hidden;
 }
 
 .teaser-circle-image.columns h3{
@@ -170,6 +171,67 @@
   margin: 0 0 1em;
 }
 
+/* Modified circle image teaser */
+.teaser-circle-image-bottom > div{
+  gap: 0;
+}
+
+.teaser-circle-image-bottom > div > div:first-child{
+  background: var(--news-color-background);
+}
+
+.teaser-circle-image-bottom > div > div:first-child picture{
+  top: auto;
+  bottom: 20px;
+  right: 20px;
+  max-width: 200px;
+}
+
+.teaser-circle-image-bottom > div > div:last-child {
+  justify-content: center;
+}
+
+.teaser-circle-image-bottom > div > div:last-child picture{
+  z-index: 0;
+  height: 100%;
+
+}
+
+.teaser-circle-image-bottom > div > div:last-child img{
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+}
+
+.teaser-circle-image-bottom.teaser-circle-image p:not(:last-child) { 
+  max-width: 410px;
+  width: 51%;
+  position: relative;
+  z-index: 1;
+}
+
+.teaser-circle-image-bottom.teaser-circle-image .button-container {
+  left: auto;
+  top: auto;
+}
+
+.teaser-circle-image-bottom.teaser-circle-image > div > div:last-child .button-container {
+  position: absolute;
+  bottom: 20px;
+}
+
+.teaser-circle-image-bottom.teaser-circle-image.columns > div > div{
+  padding: 50px 32px;
+  min-height: 500px;
+}
+
+.teaser-circle-image-bottom.teaser-circle-image h3 {
+  font-size: 29px;
+  font-weight: 600;
+  line-height: 1.2;
+  position: relative;
+  z-index: 1;
+}
 
 /* Clients section */
 .clients.columns img {
