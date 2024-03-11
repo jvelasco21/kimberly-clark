@@ -83,6 +83,7 @@
   --story-heading-font-size: 22px;
   --story-heading-font-family: var(--heading-font-family);
   --story-font-size: var(--body-font-size-xs);
+  --news-color-background: #BFD3F3;
 }
 
 @font-face {
