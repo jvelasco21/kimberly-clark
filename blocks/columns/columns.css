@@ -265,8 +265,23 @@
 .clients.columns a {
   display: inline-block;
   padding: 0 15px;
+  width: 33.3%;
+  flex-shrink: 0;
 }
 
 .clients.columns > div > div{
   align-items: center;
+  flex-flow: row wrap;
+}
+
+/* tablet modifications */
+@media (width >= 600px) {
+  .clients.columns a{
+    width: auto;
+    flex-shrink: 1;
+  }
+
+  .clients.columns > div > div{
+    flex-flow: row nowrap !important; 
+  }
 }
