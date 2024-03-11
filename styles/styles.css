@@ -84,6 +84,10 @@
   --story-heading-font-family: var(--heading-font-family);
   --story-font-size: var(--body-font-size-xs);
   --news-color-background: #BFD3F3;
+
+  /* footer */
+  --footer-font-family: var(--heading-font-family);
+  --footer-font-size: 13px;
 }
 
 @font-face {
@@ -223,11 +227,13 @@ a.button:any-link, button {
   text-overflow: ellipsis;
   border-radius: 20px;
   line-height: 1;
+  transition: .1s;
 }
 
 a.button:hover, a.button:focus, button:hover, button:focus  {
   background-color: var(--cta-hover);
   cursor: pointer;
+  transform: scale(1.05);
 }
 
 button:disabled, button:disabled:hover {

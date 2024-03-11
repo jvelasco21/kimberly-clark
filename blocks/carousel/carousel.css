@@ -196,15 +196,20 @@
 }
 
 .hero.carousel .carousel-slide-content{
-  padding: 0;
+  padding: 0 450px 0 16px;
   margin: 0 auto;
   background: none;
   color: var(--carousel-color-heading);
   width: var(--max-width);
-  padding-right: 450px;
   position: relative;
   top: 17%;
   font-size: var(--heading-font-size-s);
+}
+
+@media (width >= 1056px) {
+  .hero.carousel .carousel-slide-content{
+    padding: 0 450px 0 0;
+  }
 }
 
 .hero.carousel .carousel-slide{

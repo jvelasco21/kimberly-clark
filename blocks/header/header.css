@@ -1,6 +1,10 @@
 /* stylelint-disable no-descending-specificity */
 
 /* header and nav layout */
+header {
+  padding: 0 16px;
+}
+
 .header-wrapper{
   position: fixed;
   top: 0;

@@ -184,7 +184,7 @@
   top: auto;
   bottom: 20px;
   right: 20px;
-  max-width: 200px;
+  max-width: 250px;
 }
 
 .teaser-circle-image-bottom > div > div:last-child {
@@ -201,11 +201,12 @@
   height: 100%;
   width: 100%;
   object-fit: contain;
+  object-position: right bottom;
 }
 
 .teaser-circle-image-bottom.teaser-circle-image p:not(:last-child) { 
   max-width: 410px;
-  width: 51%;
+  width: 100%;
   position: relative;
   z-index: 1;
 }
@@ -213,6 +214,10 @@
 .teaser-circle-image-bottom.teaser-circle-image .button-container {
   left: auto;
   top: auto;
+}
+
+.teaser-circle-image-bottom.teaser-circle-image > div > div:last-child p{
+  width: 51%;
 }
 
 .teaser-circle-image-bottom.teaser-circle-image > div > div:last-child .button-container {
