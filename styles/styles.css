@@ -77,6 +77,7 @@
 
   /* stats */
   --stats-heading-font-size: 80px;
+  --stats-heading-mobile-font-size: 48px;
   --stats-heading-font-family: var(--heading-font-family);
 
   /* story teaser */
