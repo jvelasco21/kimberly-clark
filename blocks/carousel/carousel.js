@@ -115,14 +115,6 @@ function bindEvents(block) {
       }
       // Stay where you are if 20% threshold is not crossed
       showSlide(block, visibleSlideIndex);
-
-      let resizeTimer;
-      window.addEventListener('resize', () => {
-        clearTimeout(resizeTimer);
-        resizeTimer = setTimeout(() => {
-          showSlide(block, visibleSlideIndex);
-        }, 1000);
-      });
     }
   });
 
@@ -163,6 +155,14 @@ function bindEvents(block) {
   }, { threshold: 0.5 });
   block.querySelectorAll('.carousel-slide').forEach((slide) => {
     slideObserver.observe(slide);
+  });
+
+  let resizeTimer;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+      showSlide(block, visibleSlideIndex);
+    }, 1000);
   });
 }
 

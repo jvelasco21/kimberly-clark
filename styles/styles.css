@@ -88,6 +88,10 @@
   /* footer */
   --footer-font-family: var(--heading-font-family);
   --footer-font-size: 13px;
+
+  /* breakpoints */
+  --breakpoint-tablet: 600px;
+  --breakpoint-desktop: 900px;
 }
 
 @font-face {
