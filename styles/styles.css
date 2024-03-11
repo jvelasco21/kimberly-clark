@@ -74,6 +74,7 @@
   --carousel-color-heading: var(--black);
   --carousel-color-description: var(--black);
   --carousel-color-indicator: var(--purple);
+  --carousel-mobile-heading-font-size: 42px;
 
   /* stats */
   --stats-heading-font-size: 80px;
@@ -199,7 +200,6 @@ main pre {
 }
 
 /* links */
-
 a:any-link {
   color: var(--link-color);
   text-decoration: none;
@@ -211,7 +211,6 @@ a:hover {
 }
 
 /* buttons */
-
 a.button:any-link, button {
   font-family: var(--body-font-family);
   font-size: var(--button-font-size);
@@ -270,7 +269,6 @@ main img {
 }
 
 /* sections */
-
 main .section {
   padding: 20px 16px;
 }
