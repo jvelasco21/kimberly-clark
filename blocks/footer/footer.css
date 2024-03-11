@@ -68,7 +68,7 @@ footer .footer-columns img{
   transform: scale(1.1);
 }
 
-/* tablet */
+/* tablet modifications */
 @media (width >= 600px) {
   .footer-columns > div > div:first-child{
     width: 100%;
@@ -81,7 +81,7 @@ footer .footer-columns img{
   }
 }
 
-/* desktop */
+/* desktop modifications */
 @media (width >= 900px) {
   .footer-columns .columns-img-col img{
     width: 100%;
