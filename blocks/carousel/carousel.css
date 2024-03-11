@@ -12,9 +12,6 @@
 
 .carousel .carousel-slides {
   display: flex;
-
-  /*  Commented out to allow for mouse drag scrolling
-  scroll-behavior: smooth; */
   scroll-snap-type: x mandatory;
   overflow: scroll clip;
 }
@@ -29,9 +26,6 @@
 
 .carousel .carousel-slide {
   flex: 0 0 100%;
-  
-  /*  Snap hidden to allow for mouse drag scrolling
-  scroll-snap-align: start; */
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -190,34 +184,32 @@
 
 .hero.carousel nav{
   position: absolute;
-  bottom: 50px;
+  bottom: 0;
   left: 50%;
   transform: translateX(-50%);
 }
 
 .hero.carousel .carousel-slide-content{
-  padding: 0 450px 0 16px;
+  padding: 0 16px;
   margin: 0 auto;
   background: none;
   color: var(--carousel-color-heading);
-  width: var(--max-width);
+  width: 100%;
+  max-width: var(--max-width);
   position: relative;
-  top: 17%;
+  top: 20px;
   font-size: var(--heading-font-size-s);
 }
 
-@media (width >= 1056px) {
-  .hero.carousel .carousel-slide-content{
-    padding: 0 450px 0 0;
-  }
-}
 
 .hero.carousel .carousel-slide{
   justify-content: flex-start;
+  min-height: 0;
+  height: 560px;
 }
 
 .hero.carousel h2{
-  font-size: var(--heading-font-size-xxl);
+  font-size: var(--carousel-mobile-heading-font-size);
   margin: 0;
 }
 
@@ -240,4 +232,41 @@
 .hero.carousel .carousel-slide-indicator button:disabled{
   background: transparent;
   border: solid 2px var(--carousel-color-indicator);
+}
+
+/* tablet modifications */
+@media (width >= 600px) {
+  .hero.carousel .carousel-slide{
+    height: 360px;
+  }
+  
+  .hero.carousel .carousel-slide-content{
+    padding: 0 200px 0 16px;
+  }
+}
+
+/* desktop modifications */
+@media (width >= 900px) {
+  .hero.carousel .carousel-slide{
+    height: 670px;
+  }
+
+  .hero.carousel .carousel-slide-content{
+    top: 17%;
+    padding: 0 450px 0 16px;
+  }
+
+  .hero.carousel h2{
+    font-size: var(--heading-font-size-xxl);
+  }
+
+  .hero.carousel nav{
+    bottom: 50px;
+  }
+}
+
+@media (width >= 1056px) {
+  .hero.carousel .carousel-slide-content{
+    padding: 0 450px 0 0;
+  }
 }

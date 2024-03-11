@@ -74,9 +74,11 @@
   --carousel-color-heading: var(--black);
   --carousel-color-description: var(--black);
   --carousel-color-indicator: var(--purple);
+  --carousel-mobile-heading-font-size: 42px;
 
   /* stats */
   --stats-heading-font-size: 80px;
+  --stats-heading-mobile-font-size: 48px;
   --stats-heading-font-family: var(--heading-font-family);
 
   /* story teaser */
@@ -88,6 +90,10 @@
   /* footer */
   --footer-font-family: var(--heading-font-family);
   --footer-font-size: 13px;
+
+  /* breakpoints */
+  --breakpoint-tablet: 600px;
+  --breakpoint-desktop: 900px;
 }
 
 @font-face {
@@ -194,7 +200,6 @@ main pre {
 }
 
 /* links */
-
 a:any-link {
   color: var(--link-color);
   text-decoration: none;
@@ -206,7 +211,6 @@ a:hover {
 }
 
 /* buttons */
-
 a.button:any-link, button {
   font-family: var(--body-font-family);
   font-size: var(--button-font-size);
@@ -265,7 +269,6 @@ main img {
 }
 
 /* sections */
-
 main .section {
   padding: 20px 16px;
 }
@@ -360,9 +363,23 @@ main .section.babyblue-inner > div {
 
 /* clients section */
 .clients-section.section > div:not(.default-content-wrapper) { 
-  padding: 100px 20px 0;
+  padding: 20px 16px 0;
 }
 
 .clients-section.section .button-container {
   margin: 0;
+}
+
+/* tablet modifications */
+@media (width >= 600px) {
+  .clients-section.section > div:not(.default-content-wrapper) { 
+    padding: 20px 20px 0;
+  }
+}
+
+/* desktop modifications */
+@media (width >= 900px) {
+  .clients-section.section > div:not(.default-content-wrapper) { 
+    padding: 100px 20px 0;
+  }
 }
