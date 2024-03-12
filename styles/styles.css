@@ -36,6 +36,7 @@
   /* navigation colors */
   --navigation-color: var(--black);
   --navigation-hover: #753bbc;
+  --navigation-color-mobile: var(--white);
 
   /* backgrounds */
   --background-color: var(--white);
@@ -66,6 +67,7 @@
 
   /* nav height */
   --nav-height: 115px;
+  --nav-mobile-height: 62px;
 
   /* base widths */
   --max-width: 1024px;
@@ -140,7 +142,7 @@ header {
 }
 
 main { 
-  padding-top: 115px;
+  padding-top: var(--nav-mobile-height);
 }
 
 h1, h2, h3,
@@ -274,6 +276,10 @@ main .section {
 }
 
 @media (width >= 600px) {
+  main { 
+    padding-top: var(--nav-height);
+  }
+  
   main .section {
     padding: 20px 32px;
   }
