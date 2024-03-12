@@ -36,6 +36,7 @@
   /* navigation colors */
   --navigation-color: var(--black);
   --navigation-hover: #753bbc;
+  --navigation-color-mobile: var(--white);
 
   /* backgrounds */
   --background-color: var(--white);
