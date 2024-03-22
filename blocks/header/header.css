@@ -3,6 +3,7 @@
 /* header and nav layout */
 header {
   padding: 0 16px;
+  height: var(--nav-mobile-height);
 }
 
 .header-wrapper {
