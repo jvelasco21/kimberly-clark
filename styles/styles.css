@@ -138,8 +138,23 @@ body.appear {
   display: block;
 }
 
-header {
-  height: var(--nav-height);
+body > header {
+  padding: 0 16px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--nav-mobile-height);
+  background-color: var(--header-background-color);
+  z-index: 5;
+  box-shadow: 0 5px 5px -2px rgba(0 0 0 / 20%);
+}
+
+@media (width >=600px) {
+  body > header {
+    height: var(--nav-height);
+    box-shadow: 0 5px 5px -2px rgba(0 0 0 / 50%);
+  }
 }
 
 main { 
