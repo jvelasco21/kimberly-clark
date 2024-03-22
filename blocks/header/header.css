@@ -3,10 +3,9 @@
 /* header and nav layout */
 header {
   padding: 0 16px;
-  height: var(--nav-mobile-height);
 }
 
-.header-wrapper {
+body > header {
   position: fixed;
   top: 0;
   left: 0;
@@ -35,7 +34,7 @@ header {
 }
 
 @media (width >=600px) {
-  .header-wrapper {
+  body > header {
     height: var(--nav-height);
     box-shadow: 0 5px 5px -2px rgba(0 0 0 / 50%);
   }
