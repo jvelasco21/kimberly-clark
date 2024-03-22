@@ -103,6 +103,7 @@
   size-adjust: 100.06%;
   ascent-override: 95%;
   src: local('arial');
+  font-display: swap;
 }
 
 @media (width >= 900px) {
@@ -126,7 +127,6 @@ body {
   font-size: var(--body-font-size-m);
   margin: 0;
   font-family: var(--body-font-family);
-  font-display: swap;
   line-height: 1.4;
   font-weight: 500;
   color: var(--text-color);
@@ -149,7 +149,6 @@ main {
 h1, h2, h3,
 h4, h5, h6 {
   font-family: var(--heading-font-family);
-  font-display: swap;
   font-weight: 600;
   line-height: 1.25;
   margin-top: 1em;
@@ -184,7 +183,6 @@ h6 {
 
 code, pre {
   font-family: var(--fixed-font-family);
-  font-display: swap;
   font-size: var(--body-font-size-s);
 }
 
@@ -218,7 +216,6 @@ a:hover {
 /* buttons */
 a.button:any-link, button {
   font-family: var(--body-font-family);
-  font-display: swap;
   font-size: var(--button-font-size);
   display: inline-block;
   box-sizing: border-box;
