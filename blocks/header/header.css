@@ -190,6 +190,7 @@ header {
   flex-flow: column;
   min-width: 150px;
   font-family: var(--heading-font-family);
+  font-display: swap;
   font-size: 13px;
   box-shadow: 0 6px 12px rgba(0 0 0 / 17.5%);
   border: 1px solid rgba(0 0 0 / 15%);
@@ -359,6 +360,7 @@ header {
 
 .main-nav .nav-drop .nav-drop > a {
   font-family: var(--navigation-font-family);
+  font-display: swap;
 }
 
 .main-nav ul ul ul li{
@@ -385,10 +387,12 @@ header {
 
 .main-nav div>ul>li>ul>li:not(:first-child)>ul a {
   font-family: var(--body-font-family);
+  font-display: swap;
 }
 
 .main-nav div>ul>li>ul>li:not(:first-child)>ul a:hover {
   font-family: var(--body-font-family);
+  font-display: swap;
   color: inherit;
   text-decoration: underline;
 }
@@ -406,6 +410,7 @@ header {
   .main-nav ul a {
     color: var(--navigation-color);
     font-family: var(--navigation-font-family);
+    font-display: swap;
     font-size: var(--body-font-size-m);
     text-decoration: none;
   }
